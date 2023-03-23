@@ -15,12 +15,13 @@ public class Main {
 
         System.out.println(euclidianDivision(a, b));
 
-        System.out.println(canBeDivided357(35));
-        System.out.println(canBeDivided357(105));
+        System.out.println(canBeDividedBy357(35));
+        System.out.println(canBeDividedBy357(105));
+        System.out.println(canBeDividedBy357(32));
     }
 
-    public static Boolean canBeDivided357(int num) {
-        return isDivisor(num, 3) && isDivisor(num, 5) && isDivisor(num, 7);
+    public static Boolean canBeDividedBy357(int num) {
+        return isDivisor(num, 7) || (isDivisor(num, 3) && isDivisor(num, 5));
     }
 
     public static Boolean isDivisor(int num, int divisor) {
