@@ -13,7 +13,7 @@ public class Main {
 
         System.out.println(a + "," +  b);
 
-        System.out.println(euclidianDivision(a, b));
+        System.out.println(euclideanDivision(a, b));
 
         System.out.println(canBeDividedBy357(35));
         System.out.println(canBeDividedBy357(105));
@@ -28,7 +28,7 @@ public class Main {
         return (num % divisor == 0);
     }
 
-    public static int euclidianDivision(int num, int denom) {
+    public static int euclideanDivision(int num, int denom) {
         return num / denom;
     }
 
