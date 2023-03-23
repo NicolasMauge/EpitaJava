@@ -26,3 +26,9 @@ hs_err_pid*
 .gitignore
 .idea/modules.xml
 .idea/vcs.xml
+MonProjet/MonProjet.iml
+.gitignore
+.gitignore
+MonProjet/.idea/misc.xml
+MonProjet/.idea/modules.xml
+MonProjet/.idea/vcs.xml
