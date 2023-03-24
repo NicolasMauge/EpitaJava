@@ -7,7 +7,12 @@ public class Vehicule {
         this.nombreRoues = nombreRoues;
     }
 
-    public void direBonjour() {
-        System.out.println("Bonjour, je suis un véhicule à " + this.nombreRoues + " roues");
+    public String direBonjour() {
+        return "Bonjour, je suis un véhicule à " + this.nombreRoues + " roues";
+    }
+
+    @Override
+    public String toString() {
+        return this.direBonjour();
     }
 }

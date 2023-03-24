@@ -6,8 +6,7 @@ public class Train extends Vehicule {
     }
 
     @Override
-    public void direBonjour() {
-        super.direBonjour();
-        System.out.println("TchooTchoo !");
+    public String direBonjour() {
+        return super.direBonjour() + " TchooTchoo !";
     }
 }

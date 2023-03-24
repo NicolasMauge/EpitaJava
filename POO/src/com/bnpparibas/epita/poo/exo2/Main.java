@@ -6,12 +6,12 @@ import com.bnpparibas.epita.poo.exo2.vehicules.Train;
 public class Main {
     public static void main(String[] args) {
         Vehicule coccinelle = new Vehicule(3);
-        coccinelle.direBonjour();
+        System.out.println(coccinelle.direBonjour());
 
         Velo bycl = new Velo();
-        bycl.direBonjour();
+        System.out.println(bycl.direBonjour());
 
         Train tr = new Train();
-        tr.direBonjour();
+        System.out.println(tr);
     }
 }
