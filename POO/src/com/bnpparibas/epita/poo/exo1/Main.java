@@ -1,3 +1,6 @@
+package com.bnpparibas.epita.poo.exo1;
+import com.bnpparibas.epita.poo.exo1.children.Enfant;
+
 public class Main {
     public static void main(String[] args) {
         Enfant charlotte = new Enfant("", "Charlotte", 19);

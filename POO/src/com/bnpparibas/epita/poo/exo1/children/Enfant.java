@@ -1,3 +1,5 @@
+package com.bnpparibas.epita.poo.exo1.children;
+
 public class Enfant {
     private String nom;
     private String prenom;
@@ -48,12 +50,12 @@ public class Enfant {
     }
 
     /**
-     * Constructeur de la classe Enfant
+     * Constructeur de la classe com.bnpparibas.epita.poo.exo1.children.Enfant
      * @param nom nom
      * @param prenom prenom
      * @param age attention, l'âge doit être supérieur à 0
      */
-    Enfant(String nom, String prenom, int age) {
+    public Enfant(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
         this.setAge(age);
