@@ -18,10 +18,12 @@ public class Enfant {
      * @param amoureux l'amoureux
      */
     private void setAmoureux(Enfant amoureux) {
-        if((this.age > 17) && (amoureux.getAge() > 17)) {
-            this.amoureux = amoureux;
-        } else {
-            System.out.println("Il faut attendre quelques années pour tomber amoureux");
+        if(amoureux!=null) {
+            if ((this.age > 17) && (amoureux.getAge() > 17)) {
+                this.amoureux = amoureux;
+            } else {
+                System.out.println("Il faut attendre quelques années pour tomber amoureux");
+            }
         }
     }
 
@@ -51,7 +53,6 @@ public class Enfant {
      * @param prenom prenom
      * @param age attention, l'âge doit être supérieur à 0
      */
-
     Enfant(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
@@ -74,7 +75,6 @@ public class Enfant {
         } else {
             System.out.println("On ne fête plus son anniversaire à 17 ans");
         }
-
     }
 
     /**
@@ -82,7 +82,9 @@ public class Enfant {
      * @param avecUnEnfant un autre enfant
      */
     public void joueAuBallon(Enfant avecUnEnfant) {
-        System.out.println(this.prenom + " joue au ballon avec " + avecUnEnfant.getPrenom() );
+        if(avecUnEnfant!=null) {
+            System.out.println(this.prenom + " joue au ballon avec " + avecUnEnfant.getPrenom());
+        }
     }
 
     public String getNom() {
