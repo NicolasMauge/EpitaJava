@@ -8,4 +8,10 @@ public class FactorielleException extends Exception {
     public FactorielleException(String message) {
         super(message);
     }
+
+    public FactorielleException(int a) {
+        super("Exception pour le chiffre " + a);
+    }
+
+
 }
