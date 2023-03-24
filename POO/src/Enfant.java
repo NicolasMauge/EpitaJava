@@ -4,46 +4,39 @@ public class Enfant {
     private int age = 0;
     private Enfant amoureux = null;
 
-    public String getNom() {
-        return nom;
-    }
-
+    /**
+     * tomber amoureux d'un autre enfant. Impossible si un des deux enfants n'est pas majeur
+     * @param amoureux l'amoureux
+     */
     public void tomberAmoureux(Enfant amoureux) {
         this.setAmoureux(amoureux);
         amoureux.setAmoureux(this);
     }
 
-    public void setAmoureux(Enfant amoureux) {
+    /**
+     * défini l'amoureux dans le détail (méthode privée)
+     * @param amoureux l'amoureux
+     */
+    private void setAmoureux(Enfant amoureux) {
         if((this.age > 17) && (amoureux.getAge() > 17)) {
             this.amoureux = amoureux;
         } else {
             System.out.println("Il faut attendre quelques années pour tomber amoureux");
         }
     }
+
+    /**
+     * pour vérifier si l'enfant est amoureux
+     * @return oui ou non
+     */
     public Boolean estAmoureux() {
         return this.amoureux != null;
     }
 
-    public Enfant getAmoureux() {
-        return amoureux;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
+    /**
+     * défini l'âge avec un contrôle pour qu'il soit supérieur à 0
+     * @param age age qui doit être supérieur à 0
+     */
     public void setAge(int age) {
         if(age > 0) {
             this.age = age;
@@ -52,14 +45,22 @@ public class Enfant {
         }
     }
 
+    /**
+     * Constructeur de la classe Enfant
+     * @param nom nom
+     * @param prenom prenom
+     * @param age attention, l'âge doit être supérieur à 0
+     */
+
     Enfant(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
-        if(age > 0) {
-            this.age = age;
-        }
+        this.setAge(age);
     }
 
+    /**
+     * une méthode pour afficher la présentation
+     */
     public void presentation() {
         System.out.println("Bonjour, je m'appelle " + this.prenom + " " + this.nom + "et j'ai "+ this.age + " ans");
     }
@@ -82,5 +83,29 @@ public class Enfant {
      */
     public void joueAuBallon(Enfant avecUnEnfant) {
         System.out.println(this.prenom + " joue au ballon avec " + avecUnEnfant.getPrenom() );
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public Enfant getAmoureux() {
+        return amoureux;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 }
