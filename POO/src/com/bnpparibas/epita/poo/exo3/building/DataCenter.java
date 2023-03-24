@@ -7,6 +7,7 @@ public class DataCenter implements AvecClimatisation {
         this.temperature = temperature;
 
         while(this.temperature > 20) {
+            System.out.println("Le Datacenter est trop chaud : on le refroidit");
             this.refroidir();
         }
     }
