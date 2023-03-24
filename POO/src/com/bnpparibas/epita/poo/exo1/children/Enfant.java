@@ -38,7 +38,7 @@ public class Enfant {
     }
 
     /**
-     * défini l'âge avec un contrôle pour qu'il soit supérieur à 0
+     * définit l'âge avec un contrôle pour qu'il soit supérieur à 0
      * @param age age qui doit être supérieur à 0
      */
     public void setAge(int age) {
