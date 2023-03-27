@@ -14,6 +14,8 @@ public class Main {
                     jourDeLaSemaine.values()[i].getSmiley()+ ", c'est le week-end : "+
                     (jourDeLaSemaine.values()[i].getJourWeekEnd() ? "Oui" : "Non"));
         }
+
+        aff(String.valueOf(jourDeLaSemaine.Jeudi.compareTo(jourDeLaSemaine.Samedi)));
     }
 
     static public void aff(String message) {
