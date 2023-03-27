@@ -1,21 +1,21 @@
 package com.bnpparibas.epita.enumerations;
 
-import com.bnpparibas.epita.enumerations.bibl.jourDeLaSemaine;
+import com.bnpparibas.epita.enumerations.bibl.JourDeLaSemaine;
 
 public class Main {
     public static void main(String[] args) {
-        jourDeLaSemaine jour = jourDeLaSemaine.Dimanche;
+        JourDeLaSemaine jour = JourDeLaSemaine.Dimanche;
 
         aff(jour.getSmiley());
         aff(""+jour.getJourWeekEnd());
 
-        for(int i=0;i<jourDeLaSemaine.values().length;i++){
-            aff(jourDeLaSemaine.values()[i] + " : "+
-                    jourDeLaSemaine.values()[i].getSmiley()+ ", c'est le week-end : "+
-                    (jourDeLaSemaine.values()[i].getJourWeekEnd() ? "Oui" : "Non"));
+        for(int i = 0; i< JourDeLaSemaine.values().length; i++){
+            aff(JourDeLaSemaine.values()[i] + " : "+
+                    JourDeLaSemaine.values()[i].getSmiley()+ ", c'est le week-end : "+
+                    (JourDeLaSemaine.values()[i].getJourWeekEnd() ? "Oui" : "Non"));
         }
 
-        aff(String.valueOf(jourDeLaSemaine.Jeudi.compareTo(jourDeLaSemaine.Samedi)));
+        aff(String.valueOf(JourDeLaSemaine.Jeudi.compareTo(JourDeLaSemaine.Samedi)));
     }
 
     static public void aff(String message) {

@@ -1,6 +1,6 @@
 package com.bnpparibas.epita.enumerations.bibl;
 
-public enum jourDeLaSemaine {
+public enum JourDeLaSemaine {
     Lundi(false, ":-("),
     Mercredi(false, ":-("),
     Mardi(false, ":-("),
@@ -12,7 +12,7 @@ public enum jourDeLaSemaine {
     private final boolean jourWeekEnd;
     private final String smiley;
 
-    jourDeLaSemaine(boolean jourWeekEnd, String smiley) {
+    JourDeLaSemaine(boolean jourWeekEnd, String smiley) {
         this.jourWeekEnd = jourWeekEnd;
         this.smiley = smiley;
     }
