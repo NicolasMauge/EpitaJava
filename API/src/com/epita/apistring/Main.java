@@ -1,6 +1,6 @@
-package com.bnpparibas.epita.apistring;
+package com.epita.apistring;
 
-import com.bnpparibas.epita.apistring.lib.StringManipulation;
+import com.epita.apistring.lib.StringManipulation;
 
 public class Main {
     public static void main(String[] args) {

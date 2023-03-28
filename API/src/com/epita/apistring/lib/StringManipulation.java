@@ -1,4 +1,4 @@
-package com.bnpparibas.epita.apistring.lib;
+package com.epita.apistring.lib;
 
 public class StringManipulation {
     static public int nbOccChar(String chaine, char charToFind) {

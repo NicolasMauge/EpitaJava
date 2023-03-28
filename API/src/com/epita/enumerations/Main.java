@@ -1,6 +1,6 @@
-package com.bnpparibas.epita.enumerations;
+package com.epita.enumerations;
 
-import com.bnpparibas.epita.enumerations.bibl.JourDeLaSemaine;
+import com.epita.enumerations.bibl.JourDeLaSemaine;
 
 public class Main {
     public static void main(String[] args) {

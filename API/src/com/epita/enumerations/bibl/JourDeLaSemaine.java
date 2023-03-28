@@ -1,4 +1,4 @@
-package com.bnpparibas.epita.enumerations.bibl;
+package com.epita.enumerations.bibl;
 
 public enum JourDeLaSemaine {
     Lundi(false, ":-("),
