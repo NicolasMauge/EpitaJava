@@ -2,7 +2,6 @@ package org.epita.tp.serie1;
 
 import java.util.*;
 public class ExercicesSupplementaires {
-
     public static long exercice1(long... entiers) {
         if (entiers.length == 0) return -1;
 
