@@ -5,10 +5,10 @@ import java.time.LocalDate;
 public class Facture {
     private LocalDate dateDeCreation;
     private Client client;
-    private LigneFacture ligneFacture;
+    private LigneFacture[] ligneFacture;
     private ModeReglement modeReglement;
 
-    public Facture(LocalDate dateDeCreation, Client client, LigneFacture ligneFacture, ModeReglement modeReglement) {
+    public Facture(LocalDate dateDeCreation, Client client, LigneFacture[] ligneFacture, ModeReglement modeReglement) {
         this.dateDeCreation = dateDeCreation;
         this.client = client;
         this.ligneFacture = ligneFacture;
@@ -31,11 +31,11 @@ public class Facture {
         this.client = client;
     }
 
-    public LigneFacture getLigneFacture() {
+    public LigneFacture[] getLigneFacture() {
         return ligneFacture;
     }
 
-    public void setLigneFacture(LigneFacture ligneFacture) {
+    public void setLigneFacture(LigneFacture[] ligneFacture) {
         this.ligneFacture = ligneFacture;
     }
 
