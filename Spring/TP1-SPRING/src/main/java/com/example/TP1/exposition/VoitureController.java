@@ -1,6 +1,6 @@
-package com.example.controller;
+package com.example.TP1.exposition;
 
-import com.example.service.VoitureService;
+import com.example.TP1.application.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +15,10 @@ public class VoitureController {
 
     @GetMapping("/find")
     public String findVoiture(){
+        // qui demande ça ?
+        // est-ce que tu es authentifié ?
+        // est-ce que ce n'est pas une attaque ?
+        // la donnée demandée est-elle
         return service.reparerVoiture();
     }
 
