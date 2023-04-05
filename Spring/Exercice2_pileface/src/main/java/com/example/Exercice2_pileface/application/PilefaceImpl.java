@@ -7,8 +7,8 @@ import java.util.Random;
 @Service
 public class PilefaceImpl implements Pileface {
     @Override
-    public Boolean getPileFace() {
+    public String getPileFace() {
         Random r = new Random();
-        return r.nextBoolean();
+        return r.nextBoolean() ? "Pile":"Face";
     }
 }

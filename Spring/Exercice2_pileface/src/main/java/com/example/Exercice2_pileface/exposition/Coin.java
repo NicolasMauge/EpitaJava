@@ -13,7 +13,7 @@ public class Coin {
     Pileface pileface;
 
     @GetMapping
-    public Boolean pileOuFace(){
+    public String pileOuFace(){
         return pileface.getPileFace();
     }
 }
