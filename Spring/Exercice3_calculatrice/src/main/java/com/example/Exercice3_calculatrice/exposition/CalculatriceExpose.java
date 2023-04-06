@@ -4,6 +4,7 @@ import com.example.Exercice3_calculatrice.application.Calculatrice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping
 public class CalculatriceExpose {
@@ -27,7 +28,11 @@ public class CalculatriceExpose {
 
     @GetMapping("/divide/{a}/{b}")
     public double division(@PathVariable("a") int a, @PathVariable("b") int b) {
-        return calc.division(a, b);
+        if(b!=0) {
+            return calc.division(a, b);
+        } else {
+            return 0.0;
+        }
     }
 
     @GetMapping("/square/{a}")
