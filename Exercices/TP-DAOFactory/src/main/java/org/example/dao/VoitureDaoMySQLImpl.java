@@ -7,4 +7,9 @@ public class VoitureDaoMySQLImpl implements IVoitureDao {
     public void createVoiture(Voiture v) {
         System.out.println("(Persistence) Enregistrement");
     }
+
+    @Override
+    public Voiture findById(int id) {
+        return null;
+    }
 }

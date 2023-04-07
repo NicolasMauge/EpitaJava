@@ -3,14 +3,20 @@ package org.example.application;
 import org.example.dao.DAOFactory;
 import org.example.dao.IVoitureDao;
 import org.example.domaine.Voiture;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 public class VoitureServiceImpl implements IVoitureService {
     IVoitureDao dao = DAOFactory.getDAO();
+
     @Override
     public void createVoiture(Voiture v) {
-        System.out.println("(Service) Création d'une voiture");
+        //System.out.println("(Service) Création d'une voiture");
         dao.createVoiture(v);
     }
 
-
+    @Override
+    public Voiture findById(int id) {
+        return dao.findById(id);
+    }
 }
