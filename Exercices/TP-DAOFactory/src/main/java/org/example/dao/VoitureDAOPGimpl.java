@@ -13,11 +13,14 @@ public class VoitureDAOPGimpl implements IVoitureDao {
         s.beginTransaction();
         s.persist(v);
         s.getTransaction().commit();
+        s.close();
     }
 
     @Override
     public Voiture findById(int id) {
         Session s = sf.openSession();
-        return s.find(Voiture.class, id);
+        Voiture v = s.find(Voiture.class, id);
+        s.close();
+        return v;
     }
 }
