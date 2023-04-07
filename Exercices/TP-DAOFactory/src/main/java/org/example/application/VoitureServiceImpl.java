@@ -3,8 +3,6 @@ package org.example.application;
 import org.example.dao.DAOFactory;
 import org.example.dao.IVoitureDao;
 import org.example.domaine.Voiture;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 public class VoitureServiceImpl implements IVoitureService {
     IVoitureDao dao = DAOFactory.getDAO();
