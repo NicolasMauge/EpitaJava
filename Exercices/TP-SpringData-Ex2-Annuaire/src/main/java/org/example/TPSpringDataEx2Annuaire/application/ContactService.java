@@ -21,4 +21,6 @@ public interface ContactService {
     List<Contact> findByPhoneNumber(String phoneNumber);
 
     void delete(Contact contact);
+
+    List<Contact> findByLastNameAndFirstName(Contact contact);
 }

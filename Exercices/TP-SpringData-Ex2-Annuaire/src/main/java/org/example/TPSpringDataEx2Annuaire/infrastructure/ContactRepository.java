@@ -13,4 +13,6 @@ public interface ContactRepository extends JpaRepository<Contact, Long> {
     List<Contact> findByLastName(String lastName);
 
     List<Contact> findByPhoneNumber(String phoneNumber);
+
+    List<Contact> findByLastNameAndFirstName(String lastName, String firstName);
 }

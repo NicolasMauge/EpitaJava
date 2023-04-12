@@ -43,6 +43,11 @@ public class ContactController {
         return service.findByLastName(lastName);
     }
 
+    @PostMapping("/name")
+    public List<Contact> findByLastNameAndFirstName(@RequestBody Contact contact) {
+        return service.findByLastNameAndFirstName(contact);
+    }
+
     @GetMapping("/phonenumber/{phoneNumber}")
     public List<Contact> findByPhoneNumber(@PathVariable("phoneNumber") String phoneNumber) {
         return service.findByPhoneNumber(phoneNumber);
