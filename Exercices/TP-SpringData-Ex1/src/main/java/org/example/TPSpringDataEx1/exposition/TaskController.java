@@ -20,6 +20,11 @@ public class TaskController {
         taskService.create(task);
     }
 
+    @PostMapping("/update")
+    public void update(@RequestBody Task task) {
+        taskService.update(task);
+    }
+
     @GetMapping("/{id}")
     public Task findById(@PathVariable("id") Long id) {
         return taskService.findById(id);

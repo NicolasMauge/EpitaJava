@@ -6,7 +6,10 @@ import org.example.TPSpringDataEx1.infrastructure.TaskDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -19,7 +22,16 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public void update(Task task) {
+        dao.save(task);
+    }
+
+    @Override
     public Task findById(Long id) {
+        Optional<Task> optionalTask = dao.findById(id);
+        if(!optionalTask.isPresent()) {
+            throw new EntityNotFoundException();
+        }
         return dao.findById(id).get();
     }
 
