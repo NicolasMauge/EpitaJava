@@ -13,7 +13,7 @@ public class Book {
     private String title;
     private String description;
     private LocalDate publicationDate;
-    @ManyToMany(fetch = fetchType.EAGER)
+    @ManyToMany
     private Set<Author> authors;
 
     public Book(String title, String description, LocalDate publicationDate, Set<Author> authors) {

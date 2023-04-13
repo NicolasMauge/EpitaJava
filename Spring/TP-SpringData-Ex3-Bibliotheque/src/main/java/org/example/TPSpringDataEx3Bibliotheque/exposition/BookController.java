@@ -1,6 +1,7 @@
 package org.example.TPSpringDataEx3Bibliotheque.exposition;
 
 import org.example.TPSpringDataEx3Bibliotheque.application.AuthorService;
+import org.example.TPSpringDataEx3Bibliotheque.application.BookDTO;
 import org.example.TPSpringDataEx3Bibliotheque.application.BookService;
 import org.example.TPSpringDataEx3Bibliotheque.domaine.Author;
 import org.example.TPSpringDataEx3Bibliotheque.domaine.Book;
@@ -28,10 +29,15 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public Book findById(@PathVariable("id") Long id) {
-        return bookService.findById(id);
+    public BookDTO findById(@PathVariable("id") Long id) {
+        Book book = bookService.findById(id);
+
+        BookDTO bookDTO = new BookDTO(book.getTitle(), book.getDescription());
+
+        return bookDTO;
     }
 
+    // il faudrait faire la même chose sur les autres classes => il faut exposer un DTO
     @GetMapping("/title/{title}")
     public List<Book> findByTitle(@PathVariable("title") String title) {
         return bookService.findByTitle(title);
