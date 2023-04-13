@@ -1,7 +1,7 @@
 package org.example.TPSpringDataEx3Bibliotheque.exposition;
 
 import org.example.TPSpringDataEx3Bibliotheque.application.AuthorService;
-import org.example.TPSpringDataEx3Bibliotheque.application.BookDTO;
+import org.example.TPSpringDataEx3Bibliotheque.DTO.BookDTO;
 import org.example.TPSpringDataEx3Bibliotheque.application.BookService;
 import org.example.TPSpringDataEx3Bibliotheque.domaine.Author;
 import org.example.TPSpringDataEx3Bibliotheque.domaine.Book;
@@ -28,13 +28,12 @@ public class BookController {
         bookService.update(book);
     }
 
+    // méthode mal intégrée => il faudrait créer une classe de conversion dans exposition
     @GetMapping("/{id}")
     public BookDTO findById(@PathVariable("id") Long id) {
         Book book = bookService.findById(id);
 
-        BookDTO bookDTO = new BookDTO(book.getTitle(), book.getDescription());
-
-        return bookDTO;
+        return new BookDTO(book.getTitle(), book.getDescription());
     }
 
     // il faudrait faire la même chose sur les autres classes => il faut exposer un DTO

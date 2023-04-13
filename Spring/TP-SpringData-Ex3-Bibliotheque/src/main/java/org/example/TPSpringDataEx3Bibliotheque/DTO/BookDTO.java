@@ -1,4 +1,4 @@
-package org.example.TPSpringDataEx3Bibliotheque.application;
+package org.example.TPSpringDataEx3Bibliotheque.DTO;
 
 public class BookDTO {
     private Long Id;
