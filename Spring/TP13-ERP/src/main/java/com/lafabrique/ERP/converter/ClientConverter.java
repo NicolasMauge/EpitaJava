@@ -6,13 +6,13 @@ import com.lafabrique.ERP.dto.AddressDto;
 import com.lafabrique.ERP.dto.ClientDetailDto;
 
 public class ClientConverter {
-    public static Client convertNoModelMapperClientDetailDtoToClientEntity(ClientDetailDto dto) {
+    public static Client convertNoModelMapperClientDetailDtoToClientEntity(ClientDetailDto clientDetailDto) {
         Client client = new Client();
-        client.setAvatar(dto.getAvatar());
-        client.setFirstname(dto.getFirstname());
-        client.setSurname(dto.getSurname());
-        client.setBirthday(dto.getBirthday());
-        client.setAddress(convertAddressDtoToAddressEntity(dto.getAdresseDto()));
+        client.setAvatar(clientDetailDto.getAvatar());
+        client.setFirstname(clientDetailDto.getFirstname());
+        client.setSurname(clientDetailDto.getSurname());
+        client.setBirthday(clientDetailDto.getBirthday());
+        client.setAddress(convertAddressDtoToAddressEntity(clientDetailDto.getAdresseDto()));
         return client;
     }
 
