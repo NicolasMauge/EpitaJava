@@ -1,31 +1,28 @@
-package com.lafabrique.ERP.domaine;
+package com.lafabrique.ERP.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 
-@Entity
-public class Produit {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProduitDetailDto {
     private Long id;
 
     private String name;
     private BigDecimal price;
 
+    private BigDecimal priceVAT;
+
     private String description;
     private String photo;
 
-    public Produit(String name, BigDecimal price, String description, String photo) {
+    public ProduitDetailDto(Long id, String name, BigDecimal price, BigDecimal priceVAT, String description, String photo) {
+        this.id = id;
         this.name = name;
         this.price = price;
+        this.priceVAT = priceVAT;
         this.description = description;
         this.photo = photo;
     }
 
-    public Produit() {
+    public ProduitDetailDto() {
     }
 
     public Long getId() {
@@ -50,6 +47,14 @@ public class Produit {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public BigDecimal getPriceVAT() {
+        return priceVAT;
+    }
+
+    public void setPriceVAT(BigDecimal priceVAT) {
+        this.priceVAT = priceVAT;
     }
 
     public String getDescription() {

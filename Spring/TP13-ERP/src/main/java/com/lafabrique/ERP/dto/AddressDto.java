@@ -1,27 +1,10 @@
-package com.lafabrique.ERP.domaine;
+package com.lafabrique.ERP.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AddressDto {
     private Long id;
     private String street;
     private String postalCode;
     private String city;
-
-    public Address(String street, String postalCode, String city) {
-        this.street = street;
-        this.postalCode = postalCode;
-        this.city = city;
-    }
-
-    public Address() {
-    }
 
     public Long getId() {
         return id;
@@ -53,5 +36,15 @@ public class Address {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public AddressDto(Long id, String street, String postalCode, String city) {
+        this.id = id;
+        this.street = street;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
+    public AddressDto() {
     }
 }

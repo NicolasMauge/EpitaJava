@@ -1,33 +1,33 @@
-package com.lafabrique.ERP.domaine;
+package com.lafabrique.ERP.dto;
 
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ClientDetailDto {
     private Long id;
 
     private String firstname;
     private String surname;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthday;
-    private String avatar;
-    @NotNull
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Address address;
 
-    public Client(String firstname, String surname, LocalDate birthday, String avatar, Address address) {
+    private String avatar;
+
+    @JsonProperty("adresse")
+    private AddressDto addressDto;
+
+    public ClientDetailDto(Long id, String firstname, String surname, LocalDate birthday, String avatar, AddressDto addressDto) {
+        this.id = id;
         this.firstname = firstname;
         this.surname = surname;
         this.birthday = birthday;
         this.avatar = avatar;
-        this.address = address;
+        this.addressDto = addressDto;
     }
 
-    public Client() {
+    public ClientDetailDto() {
     }
 
     public Long getId() {
@@ -62,19 +62,19 @@ public class Client {
         this.birthday = birthday;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
     public String getAvatar() {
         return avatar;
     }
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public AddressDto getAdresseDto() {
+        return addressDto;
+    }
+
+    public void setAdresseDto(AddressDto addressDto) {
+        this.addressDto = addressDto;
     }
 }
