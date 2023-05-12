@@ -13,12 +13,13 @@ public class LigneDevis {
     @OneToOne
     private Produit produit;
     private long quantity;
-
+    private BigDecimal montant;
     private BigDecimal remise;
 
-    public LigneDevis(Produit produit, long quantity, BigDecimal remise) {
+    public LigneDevis(Produit produit, long quantity, BigDecimal montant, BigDecimal remise) {
         this.produit = produit;
         this.quantity = quantity;
+        this.montant = montant;
         this.remise = remise;
     }
 
@@ -55,5 +56,13 @@ public class LigneDevis {
 
     public void setRemise(BigDecimal remise) {
         this.remise = remise;
+    }
+
+    public BigDecimal getMontant() {
+        return montant;
+    }
+
+    public void setMontant(BigDecimal montant) {
+        this.montant = montant;
     }
 }

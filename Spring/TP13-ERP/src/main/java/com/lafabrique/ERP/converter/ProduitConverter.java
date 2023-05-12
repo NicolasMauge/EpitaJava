@@ -29,6 +29,21 @@ public class ProduitConverter {
         return produitDetailDto;
     }
 
+    public static Produit convertProduitDetailDtoToProduitEntity(ProduitDetailDto produitDetailDto) {
+        Produit produit = new Produit();
+
+        Optional.ofNullable(produitDetailDto).ifPresent((p) -> {
+            produit.setDescription(p.getDescription());
+            produit.setId(p.getId());
+            produit.setName(p.getName());
+            produit.setPhoto(p.getPhoto());
+            produit.setPrice(p.getPrice());
+                }
+        );
+
+        return produit;
+    }
+
     public ProduitMinDto convertProduitEntityToProduitMinDto(Produit produit) {
         ProduitMinDto dto = new ProduitMinDto();
         dto.setId(produit.getId());

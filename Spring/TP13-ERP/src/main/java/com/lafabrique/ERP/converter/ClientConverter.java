@@ -51,7 +51,20 @@ public class ClientConverter {
         return addressDto;
     }
 
-
-
-
+    public static Address convertAddressDtoToAddressEntity(AddressDto addressDto) {
+        Address address = new Address();
+        address.setId(addressDto.getId());
+        address.setPostalCode(addressDto.getPostalCode());
+        address.setStreet(addressDto.getStreet());
+        address.setCity(addressDto.getCity());
+        return address;
+    }
+    public static Client convertClientMinDtoToClient(ClientDetailDto clientDetailDto) {
+        Client client = new Client();
+        client.setAvatar(clientDetailDto.getAvatar());
+        client.setSurname(clientDetailDto.getSurname());
+        client.setFirstname(clientDetailDto.getFirstname());
+        client.setAddress(convertAddressDtoToAddressEntity(clientDetailDto.getAdresseDto()));
+        return client;
+    }
 }
