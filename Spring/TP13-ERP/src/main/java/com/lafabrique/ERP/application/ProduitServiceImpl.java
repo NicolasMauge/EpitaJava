@@ -3,6 +3,7 @@ package com.lafabrique.ERP.application;
 import com.lafabrique.ERP.domaine.Produit;
 import com.lafabrique.ERP.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -32,5 +33,10 @@ public class ProduitServiceImpl implements ProduitService {
     @Override
     public List<Produit> findAll() {
         return produitRepository.findAll();
+    }
+
+    @Override
+    public List<Produit> findAll(Sort sort) {
+        return produitRepository.findAll(sort);
     }
 }

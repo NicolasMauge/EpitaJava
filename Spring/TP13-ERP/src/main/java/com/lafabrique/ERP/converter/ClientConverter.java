@@ -3,9 +3,7 @@ package com.lafabrique.ERP.converter;
 import com.lafabrique.ERP.domaine.*;
 import com.lafabrique.ERP.dto.*;
 
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 public class ClientConverter {
     public static Client convertClientDetailDtoToClientEntity(ClientDetailDto clientDetailDto) {
@@ -53,51 +51,7 @@ public class ClientConverter {
         return addressDto;
     }
 
-    public static ProduitDetailDto convertProduitEntityToProduitDetailDto(Produit produit) {
-        ProduitDetailDto produitDetailDto = new ProduitDetailDto();
 
-        Optional.ofNullable(produit).ifPresent((p) -> {
-                    produitDetailDto.setDescription(p.getDescription());
-                    produitDetailDto.setId(p.getId());
-                    produitDetailDto.setName(p.getName());
-                    produitDetailDto.setPhoto(p.getPhoto());
-                    produitDetailDto.setPrice(p.getPrice());
-                }
-        );
 
-        return produitDetailDto;
-    }
 
-    public static DevisDetailDto convertDevisEntityToDevisDetailDto(Devis devis) {
-        ClientDetailDto client;
-        DevisDetailDto devisDetailDto = new DevisDetailDto();
-
-        Optional.ofNullable(devis).ifPresent((d) -> {
-                    devisDetailDto.setId(d.getId());
-                }
-        );
-
-        Optional.ofNullable(devis.getClient()).ifPresent((c) -> {
-                    devisDetailDto.setClientDetailDto(convertClientEntityToClientDetailDto(c));
-                }
-        );
-
-        Optional.ofNullable(devis.getLigneDevis()).ifPresent((l) -> {
-                    Set<LigneDevisDto> ligneDevisDtoSet = new HashSet<LigneDevisDto>();
-
-                    for (LigneDevis ligne : l) {
-                        LigneDevisDto ligneDevisDto = new LigneDevisDto();
-
-                        ligneDevisDto.setProduitDetailDto(convertProduitEntityToProduitDetailDto(ligne.getProduit()));
-                        ligneDevisDto.setQuantity(ligne.getQuantity());
-
-                        ligneDevisDtoSet.add(ligneDevisDto);
-                    }
-
-                    devisDetailDto.setLigneDevisDto(ligneDevisDtoSet);
-                }
-        );
-
-        return devisDetailDto;
-    }
 }
