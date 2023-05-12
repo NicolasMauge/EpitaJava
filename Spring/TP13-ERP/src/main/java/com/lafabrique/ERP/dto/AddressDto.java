@@ -6,6 +6,16 @@ public class AddressDto {
     private String postalCode;
     private String city;
 
+    public AddressDto(Long id, String street, String postalCode, String city) {
+        this.id = id;
+        this.street = street;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
+    public AddressDto() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -36,15 +46,5 @@ public class AddressDto {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public AddressDto(Long id, String street, String postalCode, String city) {
-        this.id = id;
-        this.street = street;
-        this.postalCode = postalCode;
-        this.city = city;
-    }
-
-    public AddressDto() {
     }
 }

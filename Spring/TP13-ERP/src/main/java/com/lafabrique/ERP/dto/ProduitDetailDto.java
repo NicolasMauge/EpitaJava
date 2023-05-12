@@ -4,12 +4,9 @@ import java.math.BigDecimal;
 
 public class ProduitDetailDto {
     private Long id;
-
     private String name;
     private BigDecimal price;
-
     private BigDecimal priceVAT;
-
     private String description;
     private String photo;
 

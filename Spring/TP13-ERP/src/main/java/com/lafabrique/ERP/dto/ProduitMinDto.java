@@ -3,14 +3,10 @@ package com.lafabrique.ERP.dto;
 import java.math.BigDecimal;
 
 public class ProduitMinDto {
-
     private Long id;
     private String name;
-
     private String photo;
-
     private BigDecimal price;
-
     private BigDecimal priceVAT;
 
     public ProduitMinDto(Long id, String name, String photo, BigDecimal price, BigDecimal priceVAT) {

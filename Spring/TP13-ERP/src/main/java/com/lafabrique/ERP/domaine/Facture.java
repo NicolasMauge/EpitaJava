@@ -11,7 +11,7 @@ public class Facture {
 
     @OneToOne
     private Client client;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private Set<LigneFacture> ligneFacture;
 
     public Facture(Client client, Set<LigneFacture> ligneFacture) {

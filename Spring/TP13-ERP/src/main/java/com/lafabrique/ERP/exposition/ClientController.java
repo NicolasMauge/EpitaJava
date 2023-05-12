@@ -17,13 +17,13 @@ public class ClientController {
 
     @PostMapping("/client")
     void createClient(@RequestBody ClientDetailDto dto) {
-        Client client = ClientConverter.convertNoModelMapperClientDetailDtoToClientEntity(dto);
+        Client client = ClientConverter.convertClientDetailDtoToClientEntity(dto);
         clientService.create(client);
     }
 
     @GetMapping("/client/{id}")
-    Client findClientById(@PathVariable("id") Long id) {
-        return clientService.findById(id);
+    ClientDetailDto findClientById(@PathVariable("id") Long id) {
+        return ClientConverter.convertClientEntityToClientDetailDto(clientService.findById(id));
     }
 
     @GetMapping("/clients")

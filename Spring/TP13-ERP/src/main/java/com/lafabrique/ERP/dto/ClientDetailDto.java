@@ -2,19 +2,15 @@ package com.lafabrique.ERP.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.LocalDate;
 
 public class ClientDetailDto {
     private Long id;
-
     private String firstname;
     private String surname;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthday;
-
     private String avatar;
-
     @JsonProperty("adresse")
     private AddressDto addressDto;
 
