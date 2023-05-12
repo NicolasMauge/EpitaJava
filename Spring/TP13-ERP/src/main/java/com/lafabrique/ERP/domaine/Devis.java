@@ -1,6 +1,7 @@
 package com.lafabrique.ERP.domaine;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -9,13 +10,19 @@ public class Devis {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @Column(name = "dateDevis")
+    private LocalDate date;
+    // création devis -> création client
+    // modification client -> modification en base
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Client client;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    // on se dit que les lignes de devis n'ont pas de sens seules
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<LigneDevis> ligneDevis;
 
-    public Devis(Client client, Set<LigneDevis> ligneDevis) {
+    public Devis(LocalDate date, Client client, Set<LigneDevis> ligneDevis) {
+        this.date = date;
         this.client = client;
         this.ligneDevis = ligneDevis;
     }
@@ -45,5 +52,13 @@ public class Devis {
 
     public void setLigneDevis(Set<LigneDevis> ligneDevis) {
         this.ligneDevis = ligneDevis;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

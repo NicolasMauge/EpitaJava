@@ -1,6 +1,8 @@
 package com.lafabrique.ERP.domaine;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.text.Bidi;
 
 @Entity
 public class LigneDevis {
@@ -12,9 +14,12 @@ public class LigneDevis {
     private Produit produit;
     private long quantity;
 
-    public LigneDevis(Produit produit, long quantity) {
+    private BigDecimal remise;
+
+    public LigneDevis(Produit produit, long quantity, BigDecimal remise) {
         this.produit = produit;
         this.quantity = quantity;
+        this.remise = remise;
     }
 
     public LigneDevis() {
@@ -42,5 +47,13 @@ public class LigneDevis {
 
     public void setQuantity(long quantity) {
         this.quantity = quantity;
+    }
+
+    public BigDecimal getRemise() {
+        return remise;
+    }
+
+    public void setRemise(BigDecimal remise) {
+        this.remise = remise;
     }
 }

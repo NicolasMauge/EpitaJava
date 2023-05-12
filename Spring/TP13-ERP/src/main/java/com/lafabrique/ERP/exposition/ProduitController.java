@@ -30,7 +30,7 @@ public class ProduitController {
         return produitService.findById(id);
     }
 
-    @GetMapping("/all/{property}/{order}")
+    @GetMapping("/produit/all/{property}/{order}")
     List<ProduitMinDto> findAllSort(@PathVariable("property") String property, @PathVariable("order") String order) {
         //List<Produit> sortedList = produitService.findAll(order.equals("D") ? Sort.by(property).descending() : Sort.by("proerty").ascending());
         Sort s = null;

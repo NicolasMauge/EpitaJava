@@ -9,7 +9,7 @@ public class Facture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private Client client;
     @OneToMany(cascade = CascadeType.PERSIST)
     private Set<LigneFacture> ligneFacture;
