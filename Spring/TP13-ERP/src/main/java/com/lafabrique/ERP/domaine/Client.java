@@ -16,7 +16,7 @@ public class Client {
     private LocalDate birthday;
     private String avatar;
     @NotNull
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
     public Client(String firstname, String surname, LocalDate birthday, String avatar, Address address) {
