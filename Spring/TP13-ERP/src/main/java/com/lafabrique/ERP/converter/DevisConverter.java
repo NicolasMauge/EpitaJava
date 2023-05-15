@@ -39,8 +39,6 @@ public class DevisConverter {
     }
 
     public DevisDetailDto convertDevisEntityToDevisDetailDto(Devis devis) {
-
-
         ClientDetailDto client;
         DevisDetailDto devisDetailDto = new DevisDetailDto();
 
