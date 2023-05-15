@@ -38,9 +38,6 @@ public class DevisConverter {
         return devis;
     }
 
-
-
-
     public DevisDetailDto convertDevisEntityToDevisDetailDto(Devis devis) {
 
 
