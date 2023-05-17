@@ -16,4 +16,7 @@ public class HelloController {
     public String sayHelloAdmin() {
         return "hello admin";
     }
+
+    @GetMapping("/all")
+    public String coucou() { return "hello anyone";}
 }

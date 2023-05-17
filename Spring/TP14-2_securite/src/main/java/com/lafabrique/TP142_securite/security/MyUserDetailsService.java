@@ -18,6 +18,13 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     MyUserService userService;
 
+    // Ou bien
+    // (sans Autowired)
+    // MyUserService userService;
+    // public MyUserService service(MyUserService userService) {
+    //      this.userService = userService;
+    // }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         MyUser user = userService.findByUsername(username);

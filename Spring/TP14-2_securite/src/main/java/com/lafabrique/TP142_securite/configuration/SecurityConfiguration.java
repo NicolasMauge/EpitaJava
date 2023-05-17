@@ -16,14 +16,18 @@ public class SecurityConfiguration {
     //private DataSource dataSource;
     private UserDetailsService userDetailsService;
 
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        /*
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .usersByUsernameQuery("select username, password, activated from utilisateur where username=?")
-                .authoritiesByUsernameQuery("select username, role from user_role where username=?"); */
+        //auth.jdbcAuthentication()
+        //        .dataSource(dataSource)
+        //        .passwordEncoder(new BCryptPasswordEncoder())
+        //        .usersByUsernameQuery("select username, password, activated from utilisateur where username=?")
+        //        .authoritiesByUsernameQuery("select username, role from user_role where username=?");
 
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(new BCryptPasswordEncoder());
@@ -37,6 +41,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .antMatchers(HttpMethod.GET, "/api/v1/hello/user").hasRole("USER")
                 .antMatchers(HttpMethod.GET, "/api/v1/hello/admin").hasRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
                 .csrf().disable()
                 .formLogin().disable();
