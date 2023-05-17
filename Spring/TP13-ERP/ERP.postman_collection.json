@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "70d60009-bfa6-4725-aefe-57839c7767b2",
+		"name": "ERP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "nouveau client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"client_firstname\",\r\n    \"surname\": \"client_surname\",\r\n    \"birthday\": \"01/01/1900\",\r\n    \"avatar\": \"moi.png\",\r\n    \"adresse\": {\r\n        \"street\": \"rue du client 1\",\r\n        \"postalCode\": \"postalcode client 1\",\r\n        \"city\": \"city du client 1\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nouveau devis",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"client\": {\r\n        \"id\": \"2\"\r\n    },\r\n    \"ligneDevis\": [\r\n        {\r\n            \"produit\": {\r\n                \"id\": \"1\"\r\n            },\r\n            \"quantity\": \"1\"\r\n        },\r\n        {\r\n            \"produit\": {\r\n                \"id\": \"2\"\r\n            },\r\n            \"quantity\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/devis",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"devis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nouveau produit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"codeProduit3\",\r\n    \"price\": \"789\",\r\n    \"description\": \"Description produit 3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/produit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"produit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client n°1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/client/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tous les clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tous les produits classés",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/produit/all/price/D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"produit",
+						"all",
+						"price",
+						"D"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
