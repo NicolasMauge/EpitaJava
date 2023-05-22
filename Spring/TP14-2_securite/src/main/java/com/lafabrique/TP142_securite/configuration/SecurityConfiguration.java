@@ -16,10 +16,8 @@ public class SecurityConfiguration {
     //private DataSource dataSource;
     private UserDetailsService userDetailsService;
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -30,7 +28,8 @@ public class SecurityConfiguration {
         //        .authoritiesByUsernameQuery("select username, role from user_role where username=?");
 
         auth.userDetailsService(userDetailsService)
-                .passwordEncoder(new BCryptPasswordEncoder());
+                //.passwordEncoder(new BCryptPasswordEncoder());
+                .passwordEncoder(passwordEncoder);
     }
 
     @Bean
@@ -39,6 +38,7 @@ public class SecurityConfiguration {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
+                .antMatchers(HttpMethod.POST, "/api/v1/hello/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/hello/user").hasRole("USER")
                 .antMatchers(HttpMethod.GET, "/api/v1/hello/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
