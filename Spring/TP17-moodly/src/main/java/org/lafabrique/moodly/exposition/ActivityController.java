@@ -3,13 +3,10 @@ package org.lafabrique.moodly.exposition;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.lafabrique.moodly.application.ActivityService;
-import org.lafabrique.moodly.application.ActivityServiceImpl;
+import org.lafabrique.moodly.application.QueueActivityService;
 import org.lafabrique.moodly.converter.convertActivities;
-import org.lafabrique.moodly.converter.convertMoodEntry;
 import org.lafabrique.moodly.domaine.Activity;
-import org.lafabrique.moodly.domaine.MoodEntry;
 import org.lafabrique.moodly.dto.ActivityDto;
-import org.lafabrique.moodly.dto.MoodEntryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +20,9 @@ public class ActivityController {
 
     @Autowired
     ObjectMapper objectMapper;
+
+    @Autowired
+    QueueActivityService queueActivityService;
 
     @PostMapping
     public void createActivity(@RequestBody ActivityDto activityDto) {
@@ -40,11 +40,12 @@ public class ActivityController {
 
             try {
                 String json = objectMapper.writeValueAsString(activityDto);
+                queueActivityService.sendMessage(json);
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
 
-            return convertActivities.convertActivityEntityToActivityDto(activity);
+            return activityDto;
         }
         else {
             throw new EntityNotFoundException("L'id ne correspond pas à une activité existante");

@@ -1,5 +1,6 @@
 package org.lafabrique.moodly.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.lafabrique.moodly.domaine.Utilisateur;
 
 import javax.persistence.ManyToOne;
@@ -14,7 +15,7 @@ public class MoodEntryDto {
 
     private String description;
 
-    // ## json format date
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate date;
 
     public MoodEntryDto(Long id, UtilisateurDto userDto, Boolean mood, String description, LocalDate date) {
