@@ -9,9 +9,5 @@ import java.util.Queue;
 
 @Repository
 public interface ActivityRepo extends JpaRepository<Activity, Long> {
-    @Query("SELECT a FROM Activity a JOIN FETCH b.user u where u.id=:id and a.mood=true")
-    List<Activity> findHappyActivityForUserById(Long id);
 
-    @Query("SELECT a FROM Activity a JOIN FETCH b.user u where u.id=:id and a.mood=false")
-    List<Activity> findSadActivityForUserById(Long id);
 }

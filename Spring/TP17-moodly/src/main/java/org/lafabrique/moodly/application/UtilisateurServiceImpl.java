@@ -4,6 +4,7 @@ import org.lafabrique.moodly.domaine.Activity;
 import org.lafabrique.moodly.domaine.MoodEntry;
 import org.lafabrique.moodly.domaine.Utilisateur;
 import org.lafabrique.moodly.infra.ActivityRepo;
+import org.lafabrique.moodly.infra.MoodEntryRepo;
 import org.lafabrique.moodly.infra.UtilisateurRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     UtilisateurRepo utilisateurRepo;
 
     @Autowired
-    ActivityRepo activityRepo;
+    MoodEntryRepo moodEntryRepo;
 
     @Override
     public void createUser(Utilisateur utilisateur) {
@@ -47,11 +48,13 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     public List<Activity> findHappyActivityForUserById(Long id) {
-        return activityRepo.findHappyActivityForUserById(id);
+        //return moodEntryRepo.findHappyActivityForUserById(id);
+        return null;
     }
 
     @Override
     public List<Activity> findSadActivityForUserById(Long id) {
-        return activityRepo.findSadActivityForUserById(id);
+        //return moodEntryRepo.findSadActivityForUserById(id);
+        return null;
     }
 }

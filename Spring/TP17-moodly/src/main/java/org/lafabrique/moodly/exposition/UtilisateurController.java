@@ -1,7 +1,6 @@
 package org.lafabrique.moodly.exposition;
 
 import org.lafabrique.moodly.application.UtilisateurService;
-import org.lafabrique.moodly.application.UtilisateurServiceImpl;
 import org.lafabrique.moodly.converter.convertActivities;
 import org.lafabrique.moodly.converter.convertUtilisateur;
 import org.lafabrique.moodly.domaine.Activity;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/users")
-public class UserController {
+public class UtilisateurController {
     @Autowired
     UtilisateurService utilisateurService;
 
@@ -73,7 +72,7 @@ public class UserController {
         return activityDtoList;
     }
 
-    @GetMapping("/{id}/happy-activities")
+    @GetMapping("/{id}/sad-activities")
     public List<ActivityDto> findSadActivityFromUserById(@PathVariable("id") Long id) {
         List<Activity> activityList = utilisateurService.findSadActivityForUserById(id);
 

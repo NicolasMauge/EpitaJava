@@ -1,5 +1,7 @@
 package org.lafabrique.moodly.exposition;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.lafabrique.moodly.application.ActivityService;
 import org.lafabrique.moodly.application.ActivityServiceImpl;
 import org.lafabrique.moodly.converter.convertActivities;
@@ -19,6 +21,9 @@ public class ActivityController {
     @Autowired
     ActivityService activityService;
 
+    @Autowired
+    ObjectMapper objectMapper;
+
     @PostMapping
     public void createActivity(@RequestBody ActivityDto activityDto) {
         Activity activity = convertActivities.convertActivityDtoToActivityEntity(activityDto);
@@ -31,6 +36,14 @@ public class ActivityController {
         Activity activity = activityService.findActivityById(id);
 
         if (activity != null) {
+            ActivityDto activityDto = convertActivities.convertActivityEntityToActivityDto(activity);
+
+            try {
+                String json = objectMapper.writeValueAsString(activityDto);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
             return convertActivities.convertActivityEntityToActivityDto(activity);
         }
         else {
