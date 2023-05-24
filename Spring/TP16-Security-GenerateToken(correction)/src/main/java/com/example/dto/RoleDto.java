@@ -1,7 +1,6 @@
 package com.example.dto;
 
 public class RoleDto {
-
     private String nom;
 
     public RoleDto(String nom) {
