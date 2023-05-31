@@ -20,9 +20,6 @@ public class UtilisateurDetailsService implements UserDetailsService {
     @Autowired
     ClientService clientService;
 
-
-
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Client client = clientService.findByEmail(username);
