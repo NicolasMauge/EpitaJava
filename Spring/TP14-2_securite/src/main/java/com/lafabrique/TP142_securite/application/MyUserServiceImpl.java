@@ -20,7 +20,7 @@ public class MyUserServiceImpl implements MyUserService {
     }
 
     public void createUser(MyUser user) {
-        System.out.println("test" + passwordEncoder);
+        //System.out.println("test" + passwordEncoder);
         String encryptedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
         repository.save(user);
