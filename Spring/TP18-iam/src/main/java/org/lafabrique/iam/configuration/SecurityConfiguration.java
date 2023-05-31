@@ -26,7 +26,8 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
-                .anyRequest().denyAll()
+                .antMatchers(HttpMethod.POST, "/api/v1/iam/create").permitAll()
+                //.anyRequest().denyAll()
                 .and()
                 .addFilter(new JWTAuthenticationManager(
                         authenticationManager(http.getSharedObject(AuthenticationConfiguration.class)

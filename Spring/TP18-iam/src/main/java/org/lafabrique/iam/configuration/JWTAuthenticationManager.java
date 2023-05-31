@@ -3,7 +3,7 @@ package org.lafabrique.iam.configuration;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.lafabrique.iam.dto.UtilisateurDto;
+import org.lafabrique.iam.dto.ClientDto;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,15 +27,15 @@ public class JWTAuthenticationManager extends UsernamePasswordAuthenticationFilt
 
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         ObjectMapper mapper = new ObjectMapper();
-        UtilisateurDto utilisateurDto = null;
+        ClientDto utilisateurDto = null;
         try {
-            utilisateurDto = mapper.readValue(request.getInputStream(), UtilisateurDto.class);
+            utilisateurDto = mapper.readValue(request.getInputStream(), ClientDto.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         return authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(utilisateurDto.getUsername(),utilisateurDto.getPassword()));
+                .authenticate(new UsernamePasswordAuthenticationToken(utilisateurDto.getEmail(),utilisateurDto.getPassword()));
     }
 
     public void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
