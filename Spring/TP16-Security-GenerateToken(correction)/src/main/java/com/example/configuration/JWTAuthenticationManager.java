@@ -20,41 +20,44 @@ import java.util.List;
 
 public class JWTAuthenticationManager extends UsernamePasswordAuthenticationFilter {
 
-     private AuthenticationManager authenticationManager;
-    public JWTAuthenticationManager(AuthenticationManager authenticationManager ){
-        this.authenticationManager=authenticationManager;
+    private AuthenticationManager authenticationManager;
+
+    public JWTAuthenticationManager(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
     }
 
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response)
             throws AuthenticationException {
 
-        ObjectMapper mapper=new ObjectMapper();
-        UtilisateurDto utilisateurDto=null;
+        ObjectMapper mapper = new ObjectMapper();
+        UtilisateurDto utilisateurDto = null;
 
         try {
             //Convertir le contenu du body de la requête en JSON
             // vers un objet java en utilisant Jackson
-            utilisateurDto=mapper
-                    .readValue(request.getInputStream(),UtilisateurDto.class);
+            utilisateurDto = mapper
+                    .readValue(request.getInputStream(), UtilisateurDto.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         return authenticationManager
                 .authenticate(
-                        new UsernamePasswordAuthenticationToken(utilisateurDto.getUsername(),utilisateurDto.getPassword()));
+                        new UsernamePasswordAuthenticationToken(utilisateurDto.getUsername(), utilisateurDto.getPassword()));
     }
 
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult)throws IOException,
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException,
             ServletException {
         org.springframework.security.core.userdetails.User springUser =
                 (org.springframework.security.core.userdetails.User) authResult.getPrincipal();
         List<String> roles = new ArrayList<>();
         springUser.getAuthorities().forEach(au -> {
-            roles.add(au.getAuthority());});
+            roles.add(au.getAuthority());
+        });
         String jwt = JWT.create().withSubject(springUser.getUsername())
                 .withArrayClaim("roles", roles.toArray(new String[roles.size()]))
                 .sign(Algorithm.HMAC256("monSecret"));
-        response.addHeader("Authorization", jwt);}
+        response.addHeader("Authorization", jwt);
+    }
 }
