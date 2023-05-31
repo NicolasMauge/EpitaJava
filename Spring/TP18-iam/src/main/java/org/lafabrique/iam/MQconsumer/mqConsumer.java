@@ -35,7 +35,7 @@ public class mqConsumer {
         if (payload.getBlocType().equals("1")) {
             Client client = clientService.findById(payload.getClientId());
 
-            // client à convertir en Dto spécial sans mdp
+            // TODO : client à convertir en Dto spécial sans mdp
 
             String payloadOut;
 
