@@ -14,6 +14,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/").hasRole("ADMIN");
+        http.authorizeRequests().anyRequest().permitAll();
         // ajouter d'autres autorisations sur les autres pages
         // http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/hello/admin/getAdminHello").hasRole("ADMIN");
         http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

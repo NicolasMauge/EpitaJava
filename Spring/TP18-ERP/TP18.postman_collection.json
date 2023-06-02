@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "b7dbbb02-5a10-4ac9-a180-bd495031511d",
+		"name": "TP18",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "new client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test@example.com\",\r\n    \"password\":\"test01\",\r\n    \"roles\": [{\"nom\":\"ROLE_ADMIN\"}],\r\n    \"adresseDto\":{\r\n        \"postalCode\":\"123456\",\r\n        \"city\":\"CITY\",\r\n        \"street\":\"123 rue de Paris\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/iam/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"iam",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test@example.com\",\r\n    \"password\":\"test01\",\r\n    \"roles\": [{\"nom\":\"ROLE_ADMIN\"}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ask for a client in ERP and answer of IAM",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIkMmEkMTAkcFk0amtqNjZ1VXBuLzM4bmFLYzNTdS83eFhoLzdIdlliRTZjb1U3eVBxWjlIZkI4Q3dOVGkiLCJyb2xlcyI6WyJST0xFX0FETUlOIl19.NF2fcEo70pd8hy-d0un1gTALNsu8Moiy-asJK_L_kD8",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/client/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"client",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
