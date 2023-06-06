@@ -1,4 +1,4 @@
-package dto;
+package org.example.batch.dto;
 
 import com.opencsv.bean.CsvBindByName;
 

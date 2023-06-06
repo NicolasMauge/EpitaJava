@@ -1,8 +1,8 @@
-package configuration;
+package org.example.batch.configuration;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import dto.ProduitDetailsDto;
+import org.example.batch.dto.ProduitDetailsDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

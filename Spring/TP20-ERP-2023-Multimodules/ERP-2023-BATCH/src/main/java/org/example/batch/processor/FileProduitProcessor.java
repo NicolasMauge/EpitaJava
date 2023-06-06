@@ -1,11 +1,9 @@
-package processor;
+package org.example.batch.processor;
 
-import dto.ProduitDetailsDto;
+import org.example.batch.dto.ProduitDetailsDto;
 import org.example.domaine.Produit;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
 
 
 @Component
