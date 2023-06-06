@@ -31,7 +31,7 @@ public class JobConfiguration {
 
     @Bean
     public CsvToBean<ProduitDetailsDto> csvToBean() throws FileNotFoundException {
-        return new CsvToBeanBuilder(new FileReader(""))
+        return new CsvToBeanBuilder(new FileReader("produits.csv"))
                 .withType(ProduitDetailsDto.class)
                 .build();
     }
