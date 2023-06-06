@@ -27,7 +27,6 @@ import java.io.FileReader;
 @Configuration
 @EnableBatchProcessing
 public class JobConfiguration {
-
     /*@Bean
     public CSVReader csvReader() throws FileNotFoundException {
         return new CSVReader(new FileReader(""));
@@ -67,6 +66,7 @@ public class JobConfiguration {
                 .<ProduitDetailsDto, Produit>chunk(10)
                 .reader(itemReader)
                 .processor(itemProcessor)
+                .writer(jsonFileItemWriter)
                 .build();
     }
 
