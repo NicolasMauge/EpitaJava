@@ -108,6 +108,12 @@
            </dependency>
 
            <dependency>
+               <groupId>org.example</groupId>
+               <artifactId>ERP-2023-BATCH</artifactId>
+               <version>${socletechnique.version}</version>
+           </dependency>
+
+           <dependency>
                <groupId>org.mapstruct</groupId>
                <artifactId>mapstruct</artifactId>
                <version>${org.mapstruct.version}</version>
