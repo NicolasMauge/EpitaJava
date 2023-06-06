@@ -12,9 +12,13 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.json.JacksonJsonObjectMarshaller;
+import org.springframework.batch.item.json.JsonFileItemWriter;
+import org.springframework.batch.item.json.builder.JsonFileItemWriterBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -29,13 +33,6 @@ public class JobConfiguration {
         return new CSVReader(new FileReader(""));
     }*/
 
-    @Bean
-    public CsvToBean<ProduitDetailsDto> csvToBean() throws FileNotFoundException {
-        return new CsvToBeanBuilder(new FileReader("produits.csv"))
-                .withType(ProduitDetailsDto.class)
-                .build();
-    }
-
     @Autowired
     StepBuilderFactory stepBuilderFactory;
 
@@ -47,6 +44,22 @@ public class JobConfiguration {
 
     @Autowired
     ItemProcessor<ProduitDetailsDto, Produit> itemProcessor;
+
+    JsonFileItemWriter<Produit> jsonFileItemWriter;
+
+    @Bean
+    public JsonFileItemWriter<Produit> jsonFileItemWriter() {
+        if (jsonFileItemWriter==null) {
+            return new JsonFileItemWriterBuilder<Produit>()
+                    .jsonObjectMarshaller(new JacksonJsonObjectMarshaller<>())
+                    .resource(new ClassPathResource("produits.json"))
+                    .name("produitJsonFileItemWriter")
+                    .build();
+        }
+        else {
+            return jsonFileItemWriter;
+        }
+    }
 
     public Step stepCreateProduct() {
         return stepBuilderFactory
