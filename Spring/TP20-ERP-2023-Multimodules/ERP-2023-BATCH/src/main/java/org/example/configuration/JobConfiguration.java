@@ -1,6 +1,6 @@
-package org.example.batch.configuration;
+package org.example.configuration;
 
-import org.example.batch.dto.ProduitDetailsDto;
+import org.example.dto.ProduitDetailsDto;
 import org.example.domaine.Produit;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

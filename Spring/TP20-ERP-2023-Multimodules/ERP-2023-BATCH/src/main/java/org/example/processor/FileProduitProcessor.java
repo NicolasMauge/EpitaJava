@@ -1,6 +1,6 @@
-package org.example.batch.processor;
+package org.example.processor;
 
-import org.example.batch.dto.ProduitDetailsDto;
+import org.example.dto.ProduitDetailsDto;
 import org.example.domaine.Produit;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;

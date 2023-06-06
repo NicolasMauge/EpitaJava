@@ -1,7 +1,7 @@
-package org.example.batch.reader;
+package org.example.reader;
 
 import com.opencsv.bean.CsvToBean;
-import org.example.batch.dto.ProduitDetailsDto;
+import org.example.dto.ProduitDetailsDto;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.NonTransientResourceException;
 import org.springframework.batch.item.ParseException;
