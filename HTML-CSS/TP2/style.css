@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+}
+
+nav {
+    height: 100px;
+    background: black;
+}
+
+#bloc-1, #bloc-2, #bloc-3 {
+    height: 500px;
+    background: rgb(230, 161, 35);
+}
