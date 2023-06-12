@@ -1,0 +1,33 @@
+section {
+    background: aliceblue;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.box {
+    width: 30%;
+    height: 100px;
+    background: #ffa500;
+    margin-bottom: 10px;
+}
+
+div.h-200 {
+    height: 200px;
+}
+
+section#colonne {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px;
+}
+
+section#lines {
+    display: flex;
+    flex-direction: row; /* disposition par défaut */
+    justify-content: space-between;
+    /* par défut : flex-wrap: no-wrap;*/
+    flex-wrap: wrap;
+}
