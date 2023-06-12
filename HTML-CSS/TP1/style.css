@@ -1,0 +1,16 @@
+header {
+    margin:20px;
+    text-align: center;
+    background: aliceblue;
+    border: 5px solid blueviolet;
+    border-radius: 15px;
+    box-shadow: 5px 10px 12px red;
+}
+
+div.container {
+    width: 960px;
+}
+
+img {
+    width: 100%;
+}
