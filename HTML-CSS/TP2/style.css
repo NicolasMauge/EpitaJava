@@ -5,9 +5,40 @@ body {
 nav {
     height: 100px;
     background: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 #bloc-1, #bloc-2, #bloc-3 {
     height: 500px;
     background: rgb(230, 161, 35);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#bloc-1 {
+    position: relative;
+    left: 50px;
+    top: -50px;
+}
+
+#bloc-2 {
+    position: relative;
+}
+
+#bloc-2 p {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+}
+
+.collant {
+    width: 100%;
+    height: 100px;
+    background: greenyellow;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
