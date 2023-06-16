@@ -1,0 +1,146 @@
+body {
+    background: #eee;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+}
+
+
+.container {
+    width: 1000px;
+    margin: auto;
+}
+
+.bloc-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    padding: 0 5px;
+}
+
+nav ul li a {
+    color: crimson;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+header img {
+    width: 100%;
+}
+
+main h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color:crimson;
+    padding: 10 px;
+    border-bottom: 4px solid orangered;
+    text-transform: uppercase;
+}
+
+section {
+    padding-top: 30px;
+}
+
+main h2 span {
+    color: orangered;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    /*text-align: center;*/
+    flex-wrap: wrap; /* pour passer à la ligne si nécessaire */
+}
+
+.cards-container div {
+    width: 22%;
+    text-align: center;
+    padding: 8px;
+    background: white;
+}
+
+.cards-container div img {
+    width: 100%;
+}
+
+.cards-container div h3 {
+    color: crimson;
+    font-size: 29px;
+    border-bottom: 3px solid crimson;
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+    /* font-weight: normal;
+    font-weight: 300; */
+}
+
+
+.cards-container div p {
+    line-height: 180%;
+}
+
+div.content {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.content>div {
+    width: 44%
+}
+
+div.content div p {
+    line-height: 180%;
+}
+
+div.content iframe {
+    width: 100%;
+}
+
+div.content div.social-media {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div.content div.social-media {
+    font-size: 70px;
+    color: orangered;
+}
+
+div.footer {
+    padding: 10px;
+    text-align: center;
+    background: rgb(116, 61, 116);
+    color: white;
+}
+
+div.footer ul {
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+div.footer a {
+    color: white;
+}
+
+@media screen and (max-width:767px) {
+    nav ul {
+        display: block;
+    }
+
+    .cards-container div {
+        width: 100%;
+    }
+
+    .content>div {
+        width: 100%;
+    }
+}
