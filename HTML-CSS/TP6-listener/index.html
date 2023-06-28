@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactions-dom</title>
+
+    <style>
+        .danger {
+            color: red;
+        }
+        .div-hover>p:hover {
+            background-color: gold;
+        }   
+
+    </style>
+
+
+</head>
+
+<body>
+    <h1>Mon super titre</h1>
+
+    <p class="content">Lorem</p>
+    <p class="content">Ipsum</p>
+
+
+    <button>Afficher/masquer la liste</button>
+
+    <ul id="ma-liste">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <div class="div-hover">
+        <p>Un petit test de hover via html</p>
+    </div>
+    <!-- 
+    	Pour écrire du JS dans la page HTML entre les balises <script></script> 
+        
+    -->
+    <script>
+        // getElementById
+        // let list = document.getElementById('ma-liste');
+        // console.log(list);
+        // // getElementsByClassName
+        // let paragraphs = document.getElementsByClassName('content');
+        // console.log(paragraphs);
+        // // getElementsByTagName
+        // let items = document.getElementsByTagName('li');
+        // console.log(items)
+
+        /* Selectionner le H1 et remplacer son texte */
+        let title = document.querySelector('h1');
+        let paragraph = document.querySelector('p.content')
+        let items = document.querySelectorAll('ul#ma-liste li');
+
+        title.textContent = 'Hello JS!';
+        title.innerHTML = 'Hello <em>JS</em> !';
+
+        // Ajouter la class danger au titre h1
+        title.classList.add('danger');
+        setTimeout(() => title.classList.remove('danger'), 5000);
+
+        console.log('p contient la class CSS .content : ', paragraph.classList.contains('content'))
+
+        /* EVENEMENT (addEventListener() ) sur 1 element */
+        title.addEventListener('click', () => {
+            // console.log(title.textContent);
+            title.style.color = 'green';
+        });
+        
+         /* EVENEMENT (addEventListener() ) sur une collection d'elements HTML */
+         // this, dans une fonction callback appelée par addEventListener(), VAUT, 
+         // L'élément HTML sur lequel l'évenement a été déclenché
+		 function setColor() {
+             console.log('this : ', this);
+             if(this.style.color=="green") {
+                this.style.color= "black";
+                this.style.backgroundColor = 'white';
+             } 
+             else {
+                this.style.color= "green";
+                this.style.backgroundColor = 'gold';
+             }
+             
+             
+         }
+
+        for(let item of items) {
+            item.addEventListener('dblclick', setColor)
+        }
+
+         
+         
+
+    </script>
+
+</body>
+
+</html>
