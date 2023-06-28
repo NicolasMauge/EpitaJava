@@ -1,0 +1,23 @@
+.container-fluid {
+    background: #a78686;
+    
+}
+
+.card {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    line-height: 1.2rem;
+}
+
+nav {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.login-navbar:hover {
+    transform: scale(1.5);
+    color: gray;
+}

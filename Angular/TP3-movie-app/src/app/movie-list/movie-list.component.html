@@ -1,0 +1,33 @@
+<!--
+<ul>
+    <li *ngFor="let movie of movies">
+        {{movie | json}}
+    </li>
+</ul>
+-->
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Movie-app</a>
+    
+    <div class="login-navbar">
+        <i routerLink='/login' class="fa fa-user" aria-hidden="true"></i>
+    </div>
+</nav>
+
+<app-searchbar></app-searchbar>
+
+<div class="container-fluid">
+    <h1>Films à l'affiche</h1>
+
+    <div class="row">
+        <div class='col-12 col-md-3' *ngFor="let movie of movies">
+            <div [routerLink]="['/detail', movie.id]" class="card">
+                <img [src]="movie.image_landscape | printImg" [alt]="movie.titre">
+                <div class="card-body">
+                    <h2>{{movie.titre}}</h2>
+                    <app-stars [score]="movie.score"></app-stars>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
