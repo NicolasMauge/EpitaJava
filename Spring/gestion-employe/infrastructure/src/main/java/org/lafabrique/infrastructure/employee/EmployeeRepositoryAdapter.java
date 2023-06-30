@@ -19,4 +19,11 @@ public class EmployeeRepositoryAdapter implements EmployeeRepository {
     public List<EmployeeEntity> getAllEmployee() {
         return employeeJpaRepository.findAll();
     }
+
+    @Override
+    public void createNewEmployee(EmployeeEntity employeeEntity) {
+        employeeJpaRepository.save(employeeEntity);
+    }
+
+
 }

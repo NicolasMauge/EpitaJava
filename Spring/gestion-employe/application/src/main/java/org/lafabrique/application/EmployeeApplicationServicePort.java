@@ -7,4 +7,6 @@ import java.util.List;
 public interface EmployeeApplicationServicePort {
 
     List<EmployeeEntity> getAllEmployee();
+
+    void createNewEmployee(EmployeeEntity employeeEntity);
 }

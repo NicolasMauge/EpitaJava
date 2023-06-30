@@ -21,4 +21,9 @@ public class EmployeeApplicationServiceAdapter implements EmployeeApplicationSer
     public List<EmployeeEntity> getAllEmployee() {
         return employeeRepository.getAllEmployee();
     }
+
+    @Override
+    public void createNewEmployee(EmployeeEntity employeeEntity) {
+        employeeRepository.createNewEmployee(employeeEntity);
+    }
 }

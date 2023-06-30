@@ -11,6 +11,9 @@ public class EmployeeEntity {
         this.lastname = lastname;
     }
 
+    public EmployeeEntity() {
+    }
+
     public String getUid() {
         return uid;
     }

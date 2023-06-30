@@ -11,6 +11,9 @@ public class EmployeeDto {
         this.lastname = lastname;
     }
 
+    public EmployeeDto() {
+    }
+
     public String getUid() {
         return uid;
     }
@@ -21,5 +24,17 @@ public class EmployeeDto {
 
     public String getLastname() {
         return lastname;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }
