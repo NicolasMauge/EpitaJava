@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ActionbarComponent } from './actionbar/actionbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PrintImgPipe } from './shared/pipes/print-img.pipe';
 import { StarsComponent } from './shared/components/stars/stars.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { PrintDurationPipe } from './shared/pipes/print-duration.pipe';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CommentFormComponent } from './comment-form/comment-form.component'; 
+import { TokenInterceptor } from './shared/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,15 +28,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     StarsComponent,
     MovieDetailComponent,
     PrintDurationPipe,
-    LoginComponent
+    LoginComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
