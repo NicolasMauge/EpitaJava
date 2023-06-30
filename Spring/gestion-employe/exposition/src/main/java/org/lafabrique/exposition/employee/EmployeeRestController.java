@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/gestion-employees")
@@ -38,5 +39,13 @@ public class EmployeeRestController {
     public ResponseEntity<String> createNewEmployee(@RequestBody EmployeeDto employeeDto) {
         employeeApplicationServicePort.createNewEmployee(mapper.mapDtoToEntity(employeeDto));
         return new ResponseEntity<String>("User created", HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{uid}")
+    public EmployeeDto getEmployeeById(@PathVariable("uid") String uid) {
+        EmployeeEntity employeeEntity = employeeApplicationServicePort.getEmployeeById(uid);
+        return mapper.mapEntityToDto(employeeEntity);
+
+
     }
 }
