@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -26,4 +27,11 @@ public class EmployeeApplicationServiceAdapter implements EmployeeApplicationSer
     public void createNewEmployee(EmployeeEntity employeeEntity) {
         employeeRepository.createNewEmployee(employeeEntity);
     }
+
+    @Override
+    public EmployeeEntity getEmployeeById(String uid) {
+        return employeeRepository.getEmployeeById(uid);
+    }
+
+
 }
