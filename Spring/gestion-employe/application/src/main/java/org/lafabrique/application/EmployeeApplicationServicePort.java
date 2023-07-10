@@ -12,4 +12,6 @@ public interface EmployeeApplicationServicePort {
     void createNewEmployee(EmployeeEntity employeeEntity);
 
     EmployeeEntity getEmployeeById(String uid);
+
+    void deleteEmployeeById(String uid);
 }

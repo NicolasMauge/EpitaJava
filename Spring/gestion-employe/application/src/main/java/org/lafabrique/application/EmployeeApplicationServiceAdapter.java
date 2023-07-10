@@ -33,5 +33,10 @@ public class EmployeeApplicationServiceAdapter implements EmployeeApplicationSer
         return employeeRepository.getEmployeeById(uid);
     }
 
+    @Override
+    public void deleteEmployeeById(String uid) {
+        employeeRepository.deleteEmployeeById(uid);
+    }
+
 
 }

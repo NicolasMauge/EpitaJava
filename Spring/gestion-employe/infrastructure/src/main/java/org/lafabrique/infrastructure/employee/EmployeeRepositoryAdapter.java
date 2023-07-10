@@ -40,5 +40,10 @@ public class EmployeeRepositoryAdapter implements EmployeeRepository {
         throw new ResourceNotFoundException("Employee not found with this UID");
     }
 
+    @Override
+    public void deleteEmployeeById(String uid) {
+        employeeJpaRepository.deleteById(uid);
+    }
+
 
 }

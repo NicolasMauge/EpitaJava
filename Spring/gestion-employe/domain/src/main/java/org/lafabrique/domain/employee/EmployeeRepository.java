@@ -9,4 +9,6 @@ public interface EmployeeRepository {
     void createNewEmployee(EmployeeEntity employeeEntity);
 
     EmployeeEntity getEmployeeById(String uid);
+
+    void deleteEmployeeById(String uid);
 }

@@ -45,7 +45,11 @@ public class EmployeeRestController {
     public EmployeeDto getEmployeeById(@PathVariable("uid") String uid) {
         EmployeeEntity employeeEntity = employeeApplicationServicePort.getEmployeeById(uid);
         return mapper.mapEntityToDto(employeeEntity);
+    }
 
-
+    @DeleteMapping("/{uid}")
+    public ResponseEntity<String> deleteEmployeeById(@PathVariable("id") String uid) {
+        employeeApplicationServicePort.deleteEmployeeById(uid);
+        return new ResponseEntity<String>("Employee Deleted", HttpStatus.NO_CONTENT);
     }
 }
